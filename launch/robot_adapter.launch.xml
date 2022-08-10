@@ -1,0 +1,47 @@
+<?xml version='1.0' ?>
+
+<launch>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="failover_mode" default="false"/>
+
+  <!-- TinyRobot fleet adapter and robot state aggregator needed for the TinyRobot slotcar_plugin -->
+  <group>
+    <let name="fleet_name" value="tinyRobot"/>
+    <include file="$(find-pkg-share rmf_ubt24_gz)/include/adapters/tinyRobot_adapter.launch.xml">
+      <arg name="fleet_name" value="$(var fleet_name)"/>
+      <arg name="use_sim_time" value="$(var use_sim_time)"/>
+      <arg name="nav_graph_file" value="$(find-pkg-share rmf_ubt24_gz)/maps/ubt24/nav_graphs/0.yaml" />
+      <arg name="finishing_request" value="nothing"/>
+      <arg name="control_type" value="full_control"/>
+    </include>
+  </group>
+
+  <!-- AiMbot fleet adapter and robot state aggregator needed for the AiMbot slotcar_plugin -->
+  <group>
+    <let name="fleet_name" value="AiMbot"/>
+    <include file="$(find-pkg-share rmf_ubt24_gz)/include/adapters/AiMbot_adapter.launch.xml">
+      <arg name="fleet_name" value="$(var fleet_name)"/>
+      <arg name="perform_loop" value="true"/>
+      <arg name="perform_deliveries" value="true"/>
+      <arg name="use_sim_time" value="$(var use_sim_time)"/>
+      <arg name="nav_graph_file" value="$(find-pkg-share rmf_ubt24_gz)/maps/ubt24/nav_graphs/0.yaml" />
+      <arg name="finishing_request" value="nothing"/>
+      <arg name="control_type" value="full_control"/>
+    </include>
+  </group>
+
+  <!-- cleanerBotA fleet adapter and robot state aggregator needed for the slotcar_plugin -->
+  <group>
+    <let name="fleet_name" value="cleanerBotA"/>
+    <include file="$(find-pkg-share rmf_ubt24_gz)/include/adapters/cleanerBotA_adapter.launch.xml">
+      <arg name="fleet_name" value="$(var fleet_name)"/>
+      <arg name="use_sim_time" value="$(var use_sim_time)"/>
+      <arg name="perform_loop" value="true"/>
+      <arg name="perform_cleaning" value="true"/>
+      <arg name="nav_graph_file" value="$(find-pkg-share rmf_ubt24_gz)/maps/ubt24/nav_graphs/1.yaml" />
+      <arg name="finishing_request" value="nothing"/>
+      <arg name="control_type" value="full_control"/>
+    </include>
+  </group>
+
+</launch> 

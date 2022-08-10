@@ -1,0 +1,48 @@
+{
+  "world_name" : "Ubt24 World",  
+  "valid_task": ["Delivery", "Clean", "Loop"],
+  "task": {
+    "Delivery": {
+      "option": {
+        "coke": {
+          "pickup_place_name": "pick_place",
+          "pickup_dispenser": "coke_dispenser",
+          "dropoff_place_name": "master_01_room",
+          "dropoff_ingestor": "coke_ingestor"
+        }
+      }
+    },
+    "Loop": {
+      "places": [
+        "AiMbot1_charger",
+        "AiMbot2_charger",
+        "tinyRobot1_charger",
+        "tinyRobot2_charger",
+        "master_01_room",
+        "master_02_room",
+        "cleanerBotA_charger1",
+        "cleanerBotA_charger2",
+        "clean_zone_A",
+        "clean_zone_B",
+        "clean_zone_C",
+        "service_1"
+      ]
+    },
+    "Clean": {
+      "option": [
+        "zone_1",
+        "zone_2",
+        "zone_3",
+        "zone_1a",
+        "zone_2a",
+        "zone_3a"
+      ]
+    },
+    "Station": {
+    },
+    "Patrol": {
+    },
+    "Charging": {
+    }
+  }
+}
